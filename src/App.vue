@@ -34,9 +34,8 @@ const apiKey = import.meta.env.VITE_WEATHER_API
 const fetchWeather = async () => {
   try {
     state.value.isLoading = true
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city.value}`)
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city.value}`)
     const data = await response.json()
-    console.log(data)
     weatherData.value = {
       temperature: data.current.temp_c,
       name: data.location.name, region: data.location.region,
